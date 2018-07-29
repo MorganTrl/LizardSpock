@@ -4,146 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>LizardSpock</title>
 </head>
 <body>
-    <script>
+    <header>
+        <h1>Lizard Spock</h1>
+    </header>
+    <section id="infos">
+        <p>Sélectionner votre arme en cliquant sur le bouton de votre choix.</p>
+    </section>
 
-    var weaponList =  ['Pierre', 'Papier', 'Ciseaux', 'Lézard', 'Spock'];
-    
-    function playerWeaponChoice() {
-        var playerWeapon = prompt("Choisisez votre arme entre : Pierre, Papier, Ciseaux, Lézard ou Spock");
-        
-        if (playerWeapon == 'Pierre' || playerWeapon == 'Papier' || playerWeapon == 'Ciseaux' || playerWeapon == 'Lézard' || playerWeapon == 'Spock') {
-            contest(playerWeapon, randomSelect());
-        } else {
-            console.log("Erreur. Veuillez choisir votre arme parmi la liste proposée !")
-            playerWeaponChoice();
-        }
-    }
-    
-    
-    /*Selectionne l'arme du joueur virtuel*/
-    function randomSelect() {
-        var randomNb = Math.floor((Math.random() * (weaponList.length - 1)));
-        var randomWeapon = weaponList[randomNb];
-        return randomWeapon;
-    }
+    <section class="player-choice">
+            <ul>
+                <li class="choice" id="pierre">Pierre</li>
+                <li class="choice" id="papier">Papier</li>
+                <li class="choice" id="ciseaux">Ciseaux</li>
+                <li class="choice" id="lezard">Lézard</li>
+                <li class="choice" id="spock">Spock</li>
+            </ul>
+    </section>
 
-    /*Fonction qui détermine gagnant et perdant*/
-    function contest(weapon1, weapon2) {
-        console.log("Joueur joue : "+weapon1+"\nOrdinateur joue : "+weapon2);
 
-        switch (weapon1) {
-
-            case ('Pierre') :
-
-                switch (weapon2) {
-                    case 'Ciseaux' :
-                    case 'Lézard':
-                        console.log('Gagné');
-                        break;
-                    case 'Spock':
-                    case 'Papier':
-                        console.log('Perdu');
-                        break;
-                    case 'Pierre':
-                        console.log('Égalité');
-                        break;
-                    default:
-                        console.log('Erreur');
-                        break;
-                }
-                break;
-             
-            case ('Papier') :
-                switch (weapon2) {
-                    case 'Pierre' :
-                    case 'Spock':
-                        console.log('Gagné');
-                        break;
-                    case 'Lézard':
-                    case 'Ciseaux':
-                        console.log('Perdu');
-                        break;
-                    case 'Papier':
-                        console.log('Égalité');
-                        break;
-                    default:
-                        console.log('Erreur');
-                        break;
-                }
-                break;
-
-            case ('Ciseaux') :
-                switch (weapon2) {
-                    case 'Papier' :
-                    case 'Lézard':
-                        console.log('Gagné');
-                        break;
-                    case 'Spock':
-                    case 'Pierre':
-                        console.log('Perdu');
-                        break;
-                    case 'Ciseaux':
-                        console.log('Égalité');
-                        break;
-                    default:
-                        console.log('Erreur');
-                        break;
-                }
-                break;
-
-            case ('Lézard') :
-                switch (weapon2) {
-                    case 'Papier' :
-                    case 'Spock':
-                        console.log('Gagné');
-                        break;
-                    case 'Pierre':
-                    case 'Ciseaux':
-                        console.log('Perdu');
-                        break;
-                    case 'Lézard':
-                        console.log('Égalité');
-                        break;
-                    default:
-                        console.log('Erreur');
-                        break;
-                }
-                break;
-            
-            case ('Spock') :
-                switch (weapon2) {
-                    case 'Ciseaux' :
-                    case 'Pierre':
-                        console.log('Gagné');
-                        break;
-                    case 'Lézard':
-                    case 'Papier':
-                        console.log('Perdu');
-                        break;
-                    case 'Spock':
-                        console.log('Égalité');
-                        break;
-                    default:
-                        console.log('Erreur');
-                        break;
-                }
-                break;
-            
-        }    
-        /* Recommencer */
-        console.log("Appuyez sur Espace pour recommencer !");
-        document.body.onkeyup = function(e){
-            if(e.keyCode == 32){
-                playerWeaponChoice();
-            }
-        }
-    }
-
-    playerWeaponChoice();
-    
-    </script>
+    <script src="lizardspock.js"></script>
 </body>
 </html>
