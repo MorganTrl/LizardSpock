@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+    var playerWeapon = prompt("Choisisez votre armes entre : Pierre, Papier, Ciseaux, Lézard ou Spock");
+    var weaponList =  ['Pierre', 'Papier', 'Ciseaux', 'Lézard', 'Spock'];
+    function randomSelect() {
+        var randomNb = Math.floor((Math.random() * (weaponList.length - 1)));
+        var randomWeapon = weaponList[randomNb];
+        return randomWeapon;
+    }
+
+    function contest(weapon1, weapon2) {
+        console.log("Joueur : "+weapon1+"\n Ordinateur : "+weapon2);
+    }
+
+    contest(playerWeapon, randomSelect());
+    </script>
+</body>
+</html>
