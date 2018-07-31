@@ -4,7 +4,10 @@ body {
 h1 {
     text-align: center;
 }
-#infos {
+#main {
+    display: flex;
+}
+#infos-box {
     width: 65%;
     height: 150px;
     border: 1px grey solid;

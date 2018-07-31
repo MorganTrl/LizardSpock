@@ -1,6 +1,6 @@
 const weaponList =  ['Pierre', 'Papier', 'Ciseaux', 'Lézard', 'Spock'];
-const playerPoints = 0;
-const pcPoints = 0;
+let player1 = 0;
+let player2 = 0;
 
 function startGame() {
     /* récupération des boutons et déclenchement évenement*/
@@ -11,7 +11,7 @@ function startGame() {
     const spock = document.getElementById('spock');
 
     const infos = document.getElementById('infos');
-
+    const points = document.getElementById('points');
     pierre.onclick = function(){
         playerWeaponChoice('Pierre');
     }    
@@ -147,13 +147,19 @@ function contest(weapon1, weapon2) {
     
     /* fonction d'info résultats*/
     function infoWin(weapon1, weapon2) {
-        infos.innerHTML = "<p>Joueur joue : " +weapon1+ ". <br> Ordinateur joue : "+weapon2+".</p> <p>Bravo ! Vous remportez cette manche !</p>";
+        player1 = player1 + 1;
+        console.log("player 1 : "+ player1);
+        points.innerHTML = "Joueur : " + player1+ "<br>Ordinateur : " + player2;
+        infos.innerHTML = "Joueur joue : " +weapon1+ ". <br> Ordinateur joue : "+weapon2+".<br> Bravo ! Vous remportez cette manche !<br>";
     }
     function infoLose(weapon1, weapon2) {
-        infos.innerHTML = "<p>Joueur joue : " +weapon1+ ". <br> Ordinateur joue : "+weapon2+".</p> <p>Perdu ! Retentez votre chance !</p>";
+        player2 = player2 + 1;
+        console.log('player 2 : ' + player2);
+        points.innerHTML = "Joueur : " + player1 + "<br>Ordinateur : " + player2;        
+        infos.innerHTML = "Joueur joue : " +weapon1+ ". <br> Ordinateur joue : "+weapon2+".<br> Perdu ! Retentez votre chance !<br>";
     }
     function infoEqual(weapon1, weapon2) {
-        infos.innerHTML = "<p>Joueur joue : " +weapon1+ ". <br> Ordinateur joue : "+weapon2+".</p> <p> Égalité !</p>";
+        infos.innerHTML = "Joueur joue : " +weapon1+ ". <br> Ordinateur joue : "+weapon2+".<br>  Égalité !<br>";
     }
 }
 
